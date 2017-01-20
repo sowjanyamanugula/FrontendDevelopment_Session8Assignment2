@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+        <title>Session8 Assignment2</title>
+        <style>
+             h1,p{
+                 text-align:center;
+             }
+              
+            input[type="text"] {
+    margin-left: 596px;
+            }
+            input#Password{
+                margin-left: 596px;
+            }
+             #submitqry {
+    margin-left: 631px;
+}
+             #back{
+    
+    margin-left: 742px;
+    margin-top: 38px;
+
+}
+#logout{
+    margin-left: 742px;
+    margin-top: 38px;
+
+}
+        </style>
+        <script>
+           function myFunction() {
+      document.getElementById('logout').style.visibility = 'hidden';
+      document.getElementById('back').style.visibility = 'visible';
+}
+           
+           function getNameFromLocalStorage(){
+				if (typeof(Storage) !== "undefined") {
+					 name = localStorage.getItem("name");
+                     email = localStorage.getItem('email');
+                     pswrd = localStorage.getItem('pswrd');
+                      var inpemail=document.getElementById('Email').value;
+                     var inppswd=document.getElementById('Password').value;
+                    if((email==inpemail) && (pswrd==inppswd))
+                    {
+                      document.getElementById('savedNameLabel').innerHTML = "Welcome to" +" "+ name;
+                      document.getElementById('back').style.visibility = 'hidden';
+                        document.getElementById('logout').style.visibility = 'visible';
+                    }
+                    else
+                    {
+                        document.getElementById('back').style.visibility = 'visible';
+                         document.getElementById('logout').style.visibility = 'hidden';
+                         document.getElementById('savedNameLabel').innerHTML = "user or password is incorrect"
+                    }
+				}		
+			};
+        </script>
+<body onload="myFunction()">
+    <h1>MySelfieTech</h1>
+    <p>Login</p>
+   
+    <input type="text" placeholder="Email" id="Email"></input>
+    <input type="password" placeholder="Password" id="Password"></input>
+     <button type="submit" id="submitqry"  onclick="getNameFromLocalStorage();">Sumbit Query</button>
+     <h1 id="savedNameLabel" style="text-align:center;">"Welcome to"</h1>
+     <button type="submit" id="logout">Logout</button>
+     <button type="submit" id="back" onclick="location.href = '../FrontendDevelopment_Session8Assignment2/index.html';">back</button>
+</body>
+</html>

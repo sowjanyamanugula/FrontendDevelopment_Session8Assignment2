@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+        <title>Session8 Assignment2</title>
+        <style>
+             h1,p{
+                 text-align:center;
+             }
+            input[type="text"] {
+    margin-left: 596px;
+            }
+            #submitqry {
+    margin-left: 631px;
+}
+#back{
+    
+    margin-left: 742px;
+    margin-top: 38px;
+
+}
+        </style>
+        <script>
+            var name,email,pswrd;
+             function saveInLocalStorage()
+             {
+                 if (typeof(Storage) !== "undefined") {
+					 name = document.getElementById('name').value;
+                     email = document.getElementById('email').value;
+                     pswrd = document.getElementById('pswrd').value;
+					// Store
+					localStorage.setItem("name", name);
+                    localStorage.setItem("email", email);
+                    localStorage.setItem("pswrd", pswrd);
+					getNameFromLocalStorage();
+				} else {
+					alert("Sorry! No Web Storage support..");
+				}
+             };
+              function getNameFromLocalStorage(){
+				if (typeof(Storage) !== "undefined") {
+					 name = localStorage.getItem("name");
+                     email = localStorage.getItem('email');
+                     pswrd = localStorage.getItem('pswrd');
+                    if(email && pswrd)
+                     // document.getElementById('savedNameLabel').innerHTML = "Welcome to" + name;
+                       window.location.href ="../FrontendDevelopment_Session8Assignment2/index.html";
+						
+					
+						
+					
+				}		
+			};
+        </script>
+<body>
+    <h1>MySelfieTech</h1>
+    <p>SignUp</p>
+    
+    <input type="text" placeholder="Name" id="name"></input>
+    <input type="text" placeholder="Email" id="email"></input>
+    <input type="text" placeholder="Password" id="pswrd"></input>
+     <button type="submit" id="submitqry" onclick="saveInLocalStorage();">Sumbit Query</button>
+     
+     <button type="submit" id="back" onclick="location.href = '../FrontendDevelopment_Session8Assignment2/index.html';">back</button>
+</body>
+</html>
